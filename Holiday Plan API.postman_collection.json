@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "91db1b29-a3ab-4de3-a47d-4cae8bb5c1ec",
+		"name": "Holiday Plan API",
+		"description": "API responsável para gerir os planos de férias para o ano de 2024. A API permite que os utilizadores executem operações CRUD(Criar, Ler, Atualizar,  \nEliminar) nos planos de férias. Onde o mesmo requer uma autenticação para realizar o CRUD.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2448753"
+	},
+	"item": [
+		{
+			"name": "Verificar Autenticação",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/me",
+				"description": "Verifica se o usuário está autenticado ou não."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"iann_costa@hotmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/login",
+				"description": "Realiza a requisição de login, exigindo 'email' e 'password' para autenticação."
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/logout",
+				"description": "Realiza o logout do usuário logado."
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Teste\",\r\n    \"email\" : \"teste@teste123.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/register",
+				"description": "Realiza o cadastro de um novo usuário."
+			},
+			"response": []
+		},
+		{
+			"name": "Index Holiday Plan",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/holiday-plans",
+				"description": "Recupera todos os planos de férias."
+			},
+			"response": []
+		},
+		{
+			"name": "Show(Id) Holiday Plan",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/holiday-plans/3",
+				"description": "Recupera um plano de férias específico."
+			},
+			"response": []
+		},
+		{
+			"name": "PDF Holiday Plan",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/holiday-plans/3/pdf",
+				"description": "Gera um PDF para um plano de férias."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Holiday Plan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Titulo Novo\",\r\n    \"description\" : \"Testando o titulo novo na descricao\",\r\n    \"date\": \"2020-08-13\",\r\n    \"location\" : \"Belem\",\r\n    \"participants\" : [\"Iann\", \"Oliveira\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/holiday-plans",
+				"description": "Cria um novo plano de férias."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Holiday Plan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Titulo Novo\",\r\n    \"description\" : \"Testando o titulo novo na descricao\",\r\n    \"date\": \"2020-08-15\",\r\n    \"location\" : \"Belem\",\r\n    \"participants\" : [\"Teste\", \"Costa\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/holiday-plans/5",
+				"description": "Atualiza um plano de férias."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Holiday Plan",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/holiday-plans/5",
+				"description": "Deleta um plano de férias."
+			},
+			"response": []
+		}
+	]
+}
